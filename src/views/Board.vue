@@ -6,20 +6,20 @@
         class="dragArea list-group"
         :list="list1"
         :clone="clone"
-        :group="{ name: 'people', pull: pullFunction }"
+        :group="{ name: 'card', pull: pullFunction }"
         @start="start"
       >
         <div class="list-group-item" v-for="element in list1" :key="element.id">
-          {{ element.name }}
+          {{ element.title }}
         </div>
       </draggable>
     </div>
 
     <div class="col-3">
       <h3>Draggable 2</h3>
-      <draggable class="dragArea list-group" :list="list2" group="people">
+      <draggable class="dragArea list-group" :list="list2" group="card">
         <div class="list-group-item" v-for="element in list2" :key="element.id">
-          {{ element.name }}
+          {{ element.title }}
         </div>
       </draggable>
     </div>
@@ -35,34 +35,64 @@ export default {
   instruction: "Press Ctrl to clone element from list 1",
   order: 4,
   components: {
-    draggable
+    draggable,
   },
   data() {
     return {
       list1: [
-        { name: "Jesus", id: 1 },
-        { name: "Paul", id: 2 },
-        { name: "Peter", id: 3 }
+        {
+          id: 1,
+          title: "First title",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        },
+        {
+          id: 2,
+          title: "second",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        },
+        {
+          id: 3,
+          title: "third",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        },
       ],
       list2: [
-        { name: "Luc", id: 5 },
-        { name: "Thomas", id: 6 },
-        { name: "John", id: 7 }
+        {
+          id: 5,
+          title: "fourth",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        },
+        {
+          id: 6,
+          title: "three",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        },
+        {
+          id: 7,
+          title: "two",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        },
       ],
-      controlOnStart: true
+      controlOnStart: true,
     };
   },
   methods: {
-    clone({ name }) {
-      return { name, id: idGlobal++ };
+    clone(value) {
+      return { id: idGlobal++, ...value };
     },
     pullFunction() {
       return this.controlOnStart ? "clone" : true;
     },
     start({ originalEvent }) {
       this.controlOnStart = originalEvent.ctrlKey;
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped></style>
