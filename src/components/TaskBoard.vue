@@ -1,5 +1,8 @@
 <template>
   <div class="row">
+    <div v-for="(column, index) in columnList" :key="column.id">
+      <task-list-column :taskList="list1" :columnIndex="index" />
+    </div>
     <div class="col-3">
       <h3>Draggable 1</h3>
       <task-list-column :taskList="list1" />
@@ -7,7 +10,6 @@
 
     <div class="col-3">
       <h3>Draggable 2</h3>
-
       <task-list-column :taskList="list2" />
     </div>
   </div>
@@ -26,8 +28,8 @@ export default {
     TaskListColumn,
   },
   data() {
+    console.log(this.$store.state);
     return {
-      isDialogOpen: false,
       list1: [
         {
           id: 1,
@@ -70,6 +72,11 @@ export default {
       ],
       controlOnStart: true,
     };
+  },
+  computed: {
+    columnList() {
+      return this.$store.state.columns;
+    },
   },
   methods: {
     clone(value) {
