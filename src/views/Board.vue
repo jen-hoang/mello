@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div>
     <task-board />
   </div>
 </template>
@@ -15,7 +15,6 @@ export default {
   components: {
     "task-board": TaskBoard,
   },
-  
 };
 </script>
 <style scoped></style>
