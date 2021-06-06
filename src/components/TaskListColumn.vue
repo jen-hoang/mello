@@ -17,12 +17,17 @@ import TaskDialog from "./TaskDialog.vue";
 export default {
   name: "task-list-column",
   props: {
-    taskList: Array,
     columnIndex: Number,
   },
   computed: {
     columnTitle() {
       return this.$store.state.columns[this.columnIndex].name;
+    },
+    columnId() {
+      return this.$store.state.columns[this.columnIndex].id;
+    },
+    taskList() {
+      return this.$store.state.taskList[this.columnId];
     },
   },
   components: {

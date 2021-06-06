@@ -1,16 +1,7 @@
 <template>
   <div class="row">
     <div v-for="(column, index) in columnList" :key="column.id">
-      <task-list-column :taskList="list1" :columnIndex="index" />
-    </div>
-    <div class="col-3">
-      <h3>Draggable 1</h3>
-      <task-list-column :taskList="list1" />
-    </div>
-
-    <div class="col-3">
-      <h3>Draggable 2</h3>
-      <task-list-column :taskList="list2" />
+      <task-list-column :columnIndex="index" />
     </div>
   </div>
 </template>
@@ -26,52 +17,6 @@ export default {
   order: 4,
   components: {
     TaskListColumn,
-  },
-  data() {
-    console.log(this.$store.state);
-    return {
-      list1: [
-        {
-          id: 1,
-          title: "First title",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        },
-        {
-          id: 2,
-          title: "second",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        },
-        {
-          id: 3,
-          title: "third",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        },
-      ],
-      list2: [
-        {
-          id: 5,
-          title: "fourth",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        },
-        {
-          id: 6,
-          title: "three",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        },
-        {
-          id: 7,
-          title: "two",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        },
-      ],
-      controlOnStart: true,
-    };
   },
   computed: {
     columnList() {
