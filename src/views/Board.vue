@@ -10,40 +10,16 @@
         @start="start"
       >
         <div class="list-group-item" v-for="element in list1" :key="element.id">
-         <v-dialog :key="element.id" v-model="isDialogOpen">
-             <template v-slot:activator="{ on, attrs }">
-             <v-card v-bind="attrs"
-            v-on="on">
-             <v-card-title>
+          <v-dialog :key="element.id" v-model="isDialogOpen">
+            <template v-slot:activator="{ on, attrs }">
+              <v-card v-bind="attrs" v-on="on">
+                <v-card-title>
                   {{ element.title }}
-             </v-card-title>
-             
-         </v-card>
-         </template>
-         <v-card>
-        <v-card-title class="text-h5">
-          Use Google's location service?
-        </v-card-title>
-        <v-card-text>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="green darken-1"
-            text
-            @click="dialog = false"
-          >
-            Disagree
-          </v-btn>
-          <v-btn
-            color="green darken-1"
-            text
-            @click="dialog = false"
-          >
-            Agree
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-         </v-dialog>
+                </v-card-title>
+              </v-card>
+            </template>
+           <task-form :title="element.title" :description="element.description" :onSubmit="function(){isOpenDialog = false}" />
+          </v-dialog>
         </div>
       </draggable>
     </div>
@@ -52,11 +28,7 @@
       <h3>Draggable 2</h3>
       <draggable class="dragArea list-group" :list="list2" group="card">
         <div class="list-group-item" v-for="element in list2" :key="element.id">
-        <v-card>
-             <v-card-title>
-                  {{ element.title }}
-             </v-card-title>
-         </v-card>
+          <task-card :title="element.title" />
         </div>
       </draggable>
     </div>
@@ -65,6 +37,9 @@
 
 <script>
 import draggable from "vuedraggable";
+import TaskCard from "../components/TaskCard.vue";
+import TaskForm from '../components/TaskForm.vue';
+
 let idGlobal = 8;
 export default {
   name: "clone-on-control",
@@ -73,10 +48,12 @@ export default {
   order: 4,
   components: {
     draggable,
+    "task-card": TaskCard,
+    "task-form": TaskForm,
   },
   data() {
     return {
-        isDialogOpen: false,
+      isDialogOpen: false,
       list1: [
         {
           id: 1,
