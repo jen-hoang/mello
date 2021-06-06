@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-dialog :key="task.id" v-model="dialog">
+    <v-dialog :key="task.id" v-model="dialog" max-width="500">
       <template v-slot:activator="{ on, attrs }">
         <div v-bind="attrs" v-on="on">
           <task-card :task="task" />
