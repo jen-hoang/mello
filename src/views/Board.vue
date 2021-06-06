@@ -9,18 +9,14 @@
         :group="{ name: 'card', pull: pullFunction }"
         @start="start"
       >
-        <div class="list-group-item" v-for="element in list1" :key="element.id">
-          <task-dialog :task="element" />
-        </div>
+        <task-list-column :taskList="list1" />
       </draggable>
     </div>
 
     <div class="col-3">
       <h3>Draggable 2</h3>
       <draggable class="dragArea list-group" :list="list2" group="card">
-        <div class="list-group-item" v-for="element in list2" :key="element.id">
-          <task-card :task="element" />
-        </div>
+        <task-list-column :taskList="list2" />
       </draggable>
     </div>
   </div>
@@ -28,8 +24,7 @@
 
 <script>
 import draggable from "vuedraggable";
-import TaskCard from "../components/TaskCard.vue";
-import TaskDialog from "../components/TaskDialog.vue";
+import TaskListColumn from "../components/TaskListColumn.vue";
 
 let idGlobal = 8;
 export default {
@@ -39,8 +34,7 @@ export default {
   order: 4,
   components: {
     draggable,
-    "task-card": TaskCard,
-    TaskDialog,
+    TaskListColumn,
   },
   data() {
     return {
