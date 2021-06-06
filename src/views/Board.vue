@@ -10,16 +10,7 @@
         @start="start"
       >
         <div class="list-group-item" v-for="element in list1" :key="element.id">
-          <v-dialog :key="element.id" v-model="isDialogOpen">
-            <template v-slot:activator="{ on, attrs }">
-              <v-card v-bind="attrs" v-on="on">
-                <v-card-title>
-                  {{ element.title }}
-                </v-card-title>
-              </v-card>
-            </template>
-           <task-form :title="element.title" :description="element.description" :onSubmit="function(){isOpenDialog = false}" />
-          </v-dialog>
+          <task-dialog :task="element" />
         </div>
       </draggable>
     </div>
@@ -28,7 +19,7 @@
       <h3>Draggable 2</h3>
       <draggable class="dragArea list-group" :list="list2" group="card">
         <div class="list-group-item" v-for="element in list2" :key="element.id">
-          <task-card :title="element.title" />
+          <task-card :task="element" />
         </div>
       </draggable>
     </div>
@@ -38,7 +29,7 @@
 <script>
 import draggable from "vuedraggable";
 import TaskCard from "../components/TaskCard.vue";
-import TaskForm from '../components/TaskForm.vue';
+import TaskDialog from "../components/TaskDialog.vue";
 
 let idGlobal = 8;
 export default {
@@ -49,7 +40,7 @@ export default {
   components: {
     draggable,
     "task-card": TaskCard,
-    "task-form": TaskForm,
+    TaskDialog,
   },
   data() {
     return {

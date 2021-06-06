@@ -1,7 +1,7 @@
 <template>
   <v-card v-bind="attrs" v-on="on">
     <v-card-title>
-      {{ title }}
+      {{ task.title }}
     </v-card-title>
   </v-card>
 </template>
@@ -12,7 +12,7 @@
 export default {
   name: "task-card",
   props: {
-    title: String,
+    task: Object,
   },
 };
 </script>
