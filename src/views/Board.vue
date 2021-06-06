@@ -10,7 +10,11 @@
         @start="start"
       >
         <div class="list-group-item" v-for="element in list1" :key="element.id">
-          {{ element.title }}
+         <v-card>
+             <v-card-title>
+                  {{ element.title }}
+             </v-card-title>
+         </v-card>
         </div>
       </draggable>
     </div>
@@ -19,7 +23,11 @@
       <h3>Draggable 2</h3>
       <draggable class="dragArea list-group" :list="list2" group="card">
         <div class="list-group-item" v-for="element in list2" :key="element.id">
-          {{ element.title }}
+        <v-card>
+             <v-card-title>
+                  {{ element.title }}
+             </v-card-title>
+         </v-card>
         </div>
       </draggable>
     </div>
