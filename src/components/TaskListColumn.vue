@@ -3,8 +3,8 @@
     <h3>{{ columnTitle }}</h3>
     <draggable
       class="dragArea list-group"
-      :list="taskList"
       :group="{ name: 'card', pull: true }"
+      v-model="taskList"
     >
       <task-dialog v-for="task in taskList" :key="task.id" :task="task" />
     </draggable>
@@ -26,8 +26,16 @@ export default {
     columnId() {
       return this.$store.state.columns[this.columnIndex].id;
     },
-    taskList() {
-      return this.$store.state.taskList[this.columnId];
+    taskList: {
+      get() {
+        return this.$store.state.taskList[this.columnId];
+      },
+      set(value) {
+        this.$store.commit("updateTaskList", {
+          taskListId: this.columnId,
+          list: value,
+        });
+      },
     },
   },
   components: {

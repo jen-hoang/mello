@@ -15,13 +15,13 @@ export default new Vuex.Store({
         todo: [
           {
             id: 1,
-            title: "First title",
+            title: "get layout",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           },
           {
             id: 2,
-            title: "second",
+            title: "Get board",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           },
@@ -56,7 +56,11 @@ export default new Vuex.Store({
       },
     };
   },
-  mutations: {},
+  mutations: {
+    updateTaskList(state, { taskListId, list }) {
+      state.taskList[taskListId] = list;
+    },
+  },
   actions: {},
   modules: {},
 });
