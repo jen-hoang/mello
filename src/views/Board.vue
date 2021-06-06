@@ -10,11 +10,40 @@
         @start="start"
       >
         <div class="list-group-item" v-for="element in list1" :key="element.id">
-         <v-card>
+         <v-dialog :key="element.id" v-model="isDialogOpen">
+             <template v-slot:activator="{ on, attrs }">
+             <v-card v-bind="attrs"
+            v-on="on">
              <v-card-title>
                   {{ element.title }}
              </v-card-title>
+             
          </v-card>
+         </template>
+         <v-card>
+        <v-card-title class="text-h5">
+          Use Google's location service?
+        </v-card-title>
+        <v-card-text>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog = false"
+          >
+            Disagree
+          </v-btn>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog = false"
+          >
+            Agree
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+         </v-dialog>
         </div>
       </draggable>
     </div>
@@ -47,6 +76,7 @@ export default {
   },
   data() {
     return {
+        isDialogOpen: false,
       list1: [
         {
           id: 1,
