@@ -7,7 +7,7 @@
         </v-btn>
       </template>
 
-      <v-card>
+      <v-card rounded="xl">
         <v-card-title class="text-h5 align-center">
           Delete this task
         </v-card-title>

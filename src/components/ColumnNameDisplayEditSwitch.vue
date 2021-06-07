@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="isShowForm" class="ml-3 mr-3 pt-1">
+    <div v-if="isShowForm" class="ml-3 mr-3">
       <v-text-field
         placeholder="Placeholder"
         class="text-h6"
@@ -10,11 +10,9 @@
         v-model="name"
       ></v-text-field>
     </div>
-    <div v-else class="d-flex justify-space-between align-center">
-      <v-card-title class="text-h5 text-left" @click="toggleForm">
-        {{ name }}
-      </v-card-title>
-    </div>
+    <v-card-title v-else class="text-h5 text-left" @click="toggleForm">
+      {{ name }}
+    </v-card-title>
   </div>
 </template>
 <script>

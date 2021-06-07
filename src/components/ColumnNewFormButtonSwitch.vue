@@ -1,16 +1,17 @@
 <template>
-  <div>
-    <div v-if="isShowForm" class="ml-3 mr-3">
+  <v-card  width="250" class="mt-5 mr-3" flat color="transparent">
+    <div v-if="isShowForm">
       <v-text-field
         placeholder="What's column name?"
         autofocus
         @blur="createColumn"
         @keypress.enter="createColumn"
         v-model="columnName"
+        class="text-h5"
       ></v-text-field>
     </div>
-    <v-btn v-else @click="displayForm">+ Add a column</v-btn>
-  </div>
+    <v-btn v-else @click="displayForm" rounded="xl" block>+ Add a column</v-btn>
+  </v-card>
 </template>
 <script>
 export default {
@@ -35,3 +36,8 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.newColumnButtonContainer {
+  width: 280;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card rounded="xl">
     <task-title-display-input-switch
       :columnId="columnId"
       :taskIndex="taskIndex"
