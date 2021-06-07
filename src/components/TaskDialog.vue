@@ -6,7 +6,12 @@
           <task-card :task="task" />
         </div>
       </template>
-      <task-form :task="task" :onSubmit="closeDialog" />
+      <task-form
+        :task="task"
+        :closeForm="closeDialog"
+        :columnId="columnId"
+        :taskIndex="taskIndex"
+      />
     </v-dialog>
   </div>
 </template>
@@ -17,6 +22,8 @@ export default {
   name: "task-dialog",
   props: {
     task: Object,
+    columnId: String,
+    taskIndex: Number,
   },
   components: {
     "task-form": TaskForm,

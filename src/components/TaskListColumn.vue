@@ -6,7 +6,13 @@
       :group="{ name: 'card', pull: true }"
       v-model="taskList"
     >
-      <task-dialog v-for="task in taskList" :key="task.id" :task="task" />
+      <task-dialog
+        v-for="(task, index) in taskList"
+        :key="task.id"
+        :task="task"
+        :columnId="columnId"
+        :taskIndex="index"
+      />
     </draggable>
   </div>
 </template>

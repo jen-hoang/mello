@@ -56,9 +56,27 @@ export default new Vuex.Store({
       },
     };
   },
+  getters: {
+    getTaskTitle:
+      (state) =>
+      ({ taskListId, taskIndex }) => {
+        return state.taskList[taskListId][taskIndex].title;
+      },
+    getTaskDescription:
+      (state) =>
+      ({ taskListId, taskIndex }) => {
+        return state.taskList[taskListId][taskIndex].description;
+      },
+  },
   mutations: {
     updateTaskList(state, { taskListId, list }) {
       state.taskList[taskListId] = list;
+    },
+    updateTaskTitle(state, { taskListId, taskIndex, value }) {
+      state.taskList[taskListId][taskIndex].title = value;
+    },
+    updateTaskDescription(state, { taskListId, taskIndex, value }) {
+      state.taskList[taskListId][taskIndex].description = value;
     },
   },
   actions: {},

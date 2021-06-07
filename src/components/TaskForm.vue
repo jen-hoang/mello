@@ -1,41 +1,46 @@
 <template>
   <v-card>
-    <task-field-input-container>
-      <template #display>
-        <v-card-title class="text-h4 mb-1">
-          {{ task.title }}
-        </v-card-title>
-      </template>
-      <template #form>
-        <v-card-title class="text-h4 mb-1"> this is the form </v-card-title>
-      </template>
-    </task-field-input-container>
+    <v-card-title>
+      <task-title-display-input-switch
+        :columnId="columnId"
+        :taskIndex="taskIndex"
+      />
+    </v-card-title>
     <div class="text-left">
       <v-card-text>
         <div class="text-h6 mb-1">
           <v-icon>mdi-book-information-variant</v-icon> Description
         </div>
         <div>
-          {{ task.description }}
+          <task-description-input-switch
+            :columnId="columnId"
+            :taskIndex="taskIndex"
+          />
         </div>
       </v-card-text>
     </div>
     <v-card-actions class="justify-end">
-      <v-btn text @click="onSubmit">Close</v-btn>
+      <v-btn text @click="closeForm">Close</v-btn>
     </v-card-actions>
   </v-card>
 </template>
 <script>
-import TaskFieldInputContainer from "./TaskFieldInputContainer.vue";
+import TaskDescriptionInputSwitch from "./TaskDescriptionInputSwitch.vue";
+import TaskTitleDisplayInputSwitch from "./TaskTitleDisplayInputSwitch";
 /**
  * A task form for user to edit the form
  */
 export default {
-  components: { TaskFieldInputContainer },
+  components: {
+    "task-title-display-input-switch": TaskTitleDisplayInputSwitch,
+    "task-description-input-switch": TaskDescriptionInputSwitch,
+  },
   name: "task-form",
   props: {
     task: Object,
-    onSubmit: Function,
+    closeForm: Function,
+    columnId: String,
+    taskIndex: Number,
   },
 };
 </script>
