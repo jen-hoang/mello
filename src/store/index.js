@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import uniqid from "uniqid";
 
 Vue.use(Vuex);
 
@@ -77,6 +78,13 @@ export default new Vuex.Store({
     },
     updateTaskDescription(state, { taskListId, taskIndex, value }) {
       state.taskList[taskListId][taskIndex].description = value;
+    },
+    addNewTask(state, { taskListId }) {
+      state.taskList[taskListId].push({
+        id: uniqid(),
+        title: "",
+        description: "",
+      });
     },
   },
   actions: {},
