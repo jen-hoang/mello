@@ -1,11 +1,9 @@
 <template>
   <v-card>
-    <v-card-title>
-      <task-title-display-input-switch
-        :columnId="columnId"
-        :taskIndex="taskIndex"
-      />
-    </v-card-title>
+    <task-title-display-input-switch
+      :columnId="columnId"
+      :taskIndex="taskIndex"
+    />
     <div class="text-left">
       <v-card-text>
         <div class="text-h6 mb-1">
