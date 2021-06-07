@@ -1,5 +1,5 @@
 <template>
-  <v-card width="280" class="mr-4 pa-2" flat>
+  <v-card width="280" class="mr-4 pa-2" flat color="transparent">
     <!-- <v-card-title class="text-h5">{{ columnName }}</v-card-title> -->
     <div class="d-flex justify-space-between align-center">
       <column-name-edit :columnIndex="columnIndex" />
