@@ -79,10 +79,10 @@ export default new Vuex.Store({
     updateTaskDescription(state, { taskListId, taskIndex, value }) {
       state.taskList[taskListId][taskIndex].description = value;
     },
-    addTask(state, { taskListId }) {
+    addTask(state, { taskListId, title }) {
       state.taskList[taskListId].push({
         id: uniqid(),
-        title: "",
+        title: title,
         description: "",
       });
     },

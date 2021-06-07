@@ -26,7 +26,9 @@ export default {
     taskIndex: Number,
   },
   mounted() {
-    console.log(this.columnId + this.taskIndex);
+    if (!this.description) {
+      this.isShowForm = true;
+    }
   },
   data() {
     return {

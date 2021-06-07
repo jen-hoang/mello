@@ -6,7 +6,7 @@
           <task-card :task="task" />
         </div>
       </template>
-      <task-form
+      <task-edit-form
         :task="task"
         :closeForm="closeDialog"
         :columnId="columnId"
@@ -16,7 +16,7 @@
   </div>
 </template>
 <script>
-import TaskForm from "./TaskForm.vue";
+import TaskEditForm from "./TaskEditForm.vue";
 import TaskCard from "./TaskCard.vue";
 export default {
   name: "task-dialog",
@@ -26,7 +26,7 @@ export default {
     taskIndex: Number,
   },
   components: {
-    "task-form": TaskForm,
+    "task-edit-form": TaskEditForm,
     "task-card": TaskCard,
   },
   data() {
