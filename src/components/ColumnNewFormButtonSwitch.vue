@@ -13,7 +13,6 @@
     <v-btn
       v-else
       @click="displayForm"
-      rounded="xl"
       block
       class="primary--text"
       text
