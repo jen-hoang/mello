@@ -32,12 +32,12 @@
             fab
             dark
             color="primary"
-            small
+            x-small
             @click="displayTaskNewCard"
             v-bind="attrs"
             v-on="on"
           >
-            <v-icon dark> mdi-plus </v-icon>
+            <v-icon dark small> mdi-plus </v-icon>
           </v-btn>
         </template>
         <span class="rounded-xl">Create a new task</span>

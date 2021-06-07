@@ -1,18 +1,18 @@
 <template>
   <div class="text-center">
-    <v-dialog v-model="dialog" width="250">
+    <v-dialog v-model="dialog" width="350">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn icon color="gray" class="d-block" v-bind="attrs" v-on="on">
+        <v-btn icon color="gray" class="d-block mr-2" v-bind="attrs" v-on="on" x-small>
           <v-icon>mdi-delete</v-icon>
         </v-btn>
       </template>
 
       <v-card rounded="xl">
-        <v-card-title class="text-h5 align-center">
-          Delete this task
+        <v-card-title class="text-h5 align-center red--text">
+          Delete this task?
         </v-card-title>
 
-        <v-card-text class="text-h6"> Are you sure? </v-card-text>
+        <v-card-text class="text-subtitle-1"> All data in this task will be lost... </v-card-text>
 
         <v-card-actions>
           <v-spacer></v-spacer>

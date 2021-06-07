@@ -5,7 +5,7 @@
         <v-icon x-large color="primary">mdi-check-all</v-icon>
         <v-toolbar-title class="ml-1 app-title"> Mello</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn href="/" icon> <v-icon>mdi-home</v-icon></v-btn>
+        <v-btn href="/" icon x-large color="blue-grey"> <v-icon>mdi-home</v-icon></v-btn>
       </v-app-bar>
 
       <!-- Sizes your content based upon application components -->

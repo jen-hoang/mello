@@ -6,8 +6,8 @@
     />
     <div class="text-left">
       <v-card-text>
-        <div class="text-h6 mb-1">
-          <v-icon>mdi-book-information-variant</v-icon> Description
+        <div class="text-h6 mb-1 blue-grey--text darken-4 font-weight-bold">
+          <v-icon color="blue-grey darken-3">mdi-book-information-variant</v-icon> Description
         </div>
         <div>
           <task-description-input-switch
