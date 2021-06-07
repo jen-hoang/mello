@@ -79,12 +79,29 @@ export default new Vuex.Store({
     updateTaskDescription(state, { taskListId, taskIndex, value }) {
       state.taskList[taskListId][taskIndex].description = value;
     },
-    addNewTask(state, { taskListId }) {
+    addTask(state, { taskListId }) {
       state.taskList[taskListId].push({
         id: uniqid(),
         title: "",
         description: "",
       });
+    },
+    deleteTask(state, { taskListId, taskIndex }) {
+      state.taskList[taskListId].splice(taskIndex, 1);
+    },
+    addColumn(state, columnName) {
+      const columnId = uniqid();
+      state.columns.push({
+        id: uniqid(),
+        name: columnName,
+      });
+      state.taskList[columnId] = [];
+    },
+    editColumnName(state, { index, name }) {
+      state.columns[index].name = name;
+    },
+    deleteColumn(state, index) {
+      state.columns.splice(index, 1);
     },
   },
   actions: {},
