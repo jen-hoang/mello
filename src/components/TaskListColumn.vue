@@ -26,9 +26,22 @@
       />
     </div>
     <v-card-actions class="justify-end">
-      <v-btn fab dark color="indigo" small @click="displayTaskNewCard">
-        <v-icon dark> mdi-plus </v-icon>
-      </v-btn>
+      <v-tooltip left class="rounded-xl">
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            fab
+            dark
+            color="primary"
+            small
+            @click="displayTaskNewCard"
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon dark> mdi-plus </v-icon>
+          </v-btn>
+        </template>
+        <span class="rounded-xl">Create a new task</span>
+      </v-tooltip>
     </v-card-actions>
   </v-card>
 </template>

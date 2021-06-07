@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="isShowForm" class="ml-3 mr-3 pt-1">
+    <div v-if="isShowForm" class="ml-3 mr-3 pa-1">
       <v-textarea
         solo
         autofocus
@@ -10,9 +10,9 @@
       ></v-textarea>
     </div>
     <div @click="toggleForm" v-else>
-      <v-card-title>
+      <v-card-text class="text-subtitle-1">
         {{ description }}
-      </v-card-title>
+      </v-card-text>
     </div>
   </div>
 </template>

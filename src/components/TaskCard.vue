@@ -1,5 +1,5 @@
 <template>
-  <v-card class="my-2" dense rounded="xl">
+  <v-card class="my-2" rounded="xl">
     <v-card-title class="text-subtitle-1">
       {{ task.title }}
     </v-card-title>

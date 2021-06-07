@@ -1,5 +1,5 @@
 <template>
-  <v-card  width="250" class="mt-5 mr-3" flat color="transparent">
+  <v-card width="250" class="mt-5 mr-3" flat color="transparent">
     <div v-if="isShowForm">
       <v-text-field
         placeholder="What's column name?"
@@ -10,7 +10,15 @@
         class="text-h5"
       ></v-text-field>
     </div>
-    <v-btn v-else @click="displayForm" rounded="xl" block>+ Add a column</v-btn>
+    <v-btn
+      v-else
+      @click="displayForm"
+      rounded="xl"
+      block
+      class="primary--text"
+      text
+      >+ Add a column</v-btn
+    >
   </v-card>
 </template>
 <script>

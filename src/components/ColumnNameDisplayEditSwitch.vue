@@ -10,7 +10,11 @@
         v-model="name"
       ></v-text-field>
     </div>
-    <v-card-title v-else class="text-h5 text-left" @click="toggleForm">
+    <v-card-title
+      v-else
+      :class="`${textColor} text-h5 text-left`"
+      @click="toggleForm"
+    >
       {{ name }}
     </v-card-title>
   </div>
@@ -48,6 +52,16 @@ export default {
           });
         }
       },
+    },
+    textColor() {
+      const colorList = [
+        "teal--text darken-2",
+        "cyan--text darken-4",
+        "light-blue--text darken-4",
+        "pink--text darken-4",
+        "deep-orange--text darken-4",
+      ];
+      return colorList[Math.floor(Math.random() * colorList.length)];
     },
   },
 };
