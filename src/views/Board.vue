@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mx-2">
     <task-board />
   </div>
 </template>

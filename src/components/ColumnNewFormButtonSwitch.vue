@@ -10,12 +10,7 @@
         class="text-h5"
       ></v-text-field>
     </div>
-    <v-btn
-      v-else
-      @click="displayForm"
-      block
-      class="primary--text"
-      text
+    <v-btn v-else @click="displayForm" block class="primary--text" rounded text
       >+ Add a column</v-btn
     >
   </v-card>
