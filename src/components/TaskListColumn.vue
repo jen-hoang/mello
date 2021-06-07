@@ -1,6 +1,10 @@
 <template>
-  <v-card width="250" class="mr-4">
-    <v-card-title class="text-h5">{{ columnTitle }}</v-card-title>
+  <v-card width="280" class="mr-4 pa-2">
+    <!-- <v-card-title class="text-h5">{{ columnName }}</v-card-title> -->
+    <div class="d-flex justify-space-between align-center">
+      <column-name-edit :columnIndex="columnIndex" />
+      <column-delete-dialog :columnIndex="columnIndex" />
+    </div>
     <div>
       <draggable
         class="dragArea list-group"
@@ -32,6 +36,8 @@
 import draggable from "vuedraggable";
 import TaskEditDialog from "./TaskEditDialog.vue";
 import TaskNewCard from "./TaskNewCard.vue";
+import ColumnNameDisplayEditSwitch from "./ColumnNameDisplayEditSwitch.vue";
+import ColumnDeleteDialog from "./ColumnDeleteDialog.vue";
 //let idGlobal = 8;
 export default {
   name: "task-list-column",
@@ -44,7 +50,7 @@ export default {
     };
   },
   computed: {
-    columnTitle() {
+    columnName() {
       return this.$store.state.columns[this.columnIndex].name;
     },
     columnId() {
@@ -66,6 +72,8 @@ export default {
     "task-edit-dialog": TaskEditDialog,
     draggable: draggable,
     "task-new-card": TaskNewCard,
+    "column-name-edit": ColumnNameDisplayEditSwitch,
+    "column-delete-dialog": ColumnDeleteDialog,
   },
   methods: {
     displayTaskNewCard() {

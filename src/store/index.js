@@ -68,6 +68,9 @@ export default new Vuex.Store({
       ({ taskListId, taskIndex }) => {
         return state.taskList[taskListId][taskIndex].description;
       },
+    getColumnName: (state) => (index) => {
+      return state.columns[index].name;
+    },
   },
   mutations: {
     updateTaskList(state, { taskListId, list }) {
@@ -95,13 +98,19 @@ export default new Vuex.Store({
         id: uniqid(),
         name: columnName,
       });
-      state.taskList[columnId] = [];
+      //state.taskList[columnId] = new Array();
+      const newTaskList = { ...state.taskList };
+      newTaskList[columnId] = [];
+      state.taskList = newTaskList;
+      console.log(state);
     },
     editColumnName(state, { index, name }) {
       state.columns[index].name = name;
     },
     deleteColumn(state, index) {
+      const columnId = state.columns[index].id;
       state.columns.splice(index, 1);
+      state.taskList[columnId] = null;
     },
   },
   actions: {},

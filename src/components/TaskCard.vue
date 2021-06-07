@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card class="my-1">
     <v-card-title>
       {{ task.title }}
     </v-card-title>

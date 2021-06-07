@@ -3,11 +3,15 @@
     <div v-for="(column, index) in columnList" :key="column.id">
       <task-list-column :columnIndex="index" />
     </div>
+    <div>
+      <column-new-button />
+    </div>
   </div>
 </template>
 
 <script>
 import TaskListColumn from "./TaskListColumn.vue";
+import ColumnNewFormButtonSwitch from "./ColumnNewFormButtonSwitch.vue";
 
 let idGlobal = 8;
 export default {
@@ -16,7 +20,8 @@ export default {
   instruction: "Press Ctrl to clone element from list 1",
   order: 4,
   components: {
-    TaskListColumn,
+    "task-list-column": TaskListColumn,
+    "column-new-button": ColumnNewFormButtonSwitch,
   },
   computed: {
     columnList() {
