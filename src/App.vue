@@ -11,7 +11,9 @@
 
   <v-app>
     <v-app-bar app dense flat>
-      <v-icon>mdi-home</v-icon>
+      <v-toolbar-title>Mello</v-toolbar-title>
+      <v-spacer></v-spacer>
+     <v-btn href="/" icon> <v-icon>mdi-home</v-icon></v-btn>
     </v-app-bar>
 
     <!-- Sizes your content based upon application components -->

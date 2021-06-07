@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     createTask() {
-      console.log("close a new task");
+      console.log(this.taskName);
       if (this.taskName) {
         this.$store.commit("addTask", {
           taskListId: this.taskListId,

@@ -5,6 +5,7 @@
         solo
         autofocus
         @blur="toggleForm"
+        @keypress.enter="toggleForm"
         v-model="description"
       ></v-textarea>
     </div>

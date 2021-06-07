@@ -6,6 +6,7 @@
         class="text-h4"
         autofocus
         @blur="toggleForm"
+        @keypress.enter="toggleForm"
         v-model="title"
       ></v-text-field>
     </div>

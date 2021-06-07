@@ -83,6 +83,8 @@ export default new Vuex.Store({
       state.taskList[taskListId][taskIndex].description = value;
     },
     addTask(state, { taskListId, title }) {
+      console.log(taskListId);
+      console.log(state.taskList[taskListId]);
       state.taskList[taskListId].push({
         id: uniqid(),
         title: title,
@@ -95,7 +97,7 @@ export default new Vuex.Store({
     addColumn(state, columnName) {
       const columnId = uniqid();
       state.columns.push({
-        id: uniqid(),
+        id: columnId,
         name: columnName,
       });
       //state.taskList[columnId] = new Array();
