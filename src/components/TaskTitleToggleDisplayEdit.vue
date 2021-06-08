@@ -27,7 +27,7 @@ import TaskDeleteDialog from "./TaskDeleteDialog.vue";
  * This is the container to control the display and input components
  */
 export default {
-  name: "task-field-input-container",
+  name: "task-title-toggle-display-edit",
   components: {
     "task-delete-dialog": TaskDeleteDialog,
   },
@@ -57,11 +57,13 @@ export default {
         });
       },
       set(value) {
-        this.$store.commit("updateTaskTitle", {
+        if(value.trim()){
+          this.$store.commit("updateTaskTitle", {
           taskListId: this.columnId,
           taskIndex: this.taskIndex,
           value,
         });
+        }
       },
     },
   },

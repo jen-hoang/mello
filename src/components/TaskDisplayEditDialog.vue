@@ -19,7 +19,7 @@
 import TaskEditForm from "./TaskEditForm.vue";
 import TaskDisplayCard from "./TaskDisplayCard.vue";
 export default {
-  name: "task-dialog",
+  name: "task-display-edit-dialog",
   props: {
     task: Object,
     columnId: String,

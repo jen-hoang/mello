@@ -10,7 +10,7 @@
  * A card displays a task on the board
  */
 export default {
-  name: "task-card",
+  name: "task-display-card",
   props: {
     task: Object,
   },

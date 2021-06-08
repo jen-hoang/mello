@@ -16,7 +16,7 @@
  * A card display text input to create the title of new task
  */
 export default {
-  name: "task-new-card",
+  name: "task-create-card",
   props: {
     taskListId: String,
     unDisplay: Function,

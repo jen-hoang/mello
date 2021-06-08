@@ -17,7 +17,7 @@
 </template>
 <script>
 export default {
-  name: "column-new-form",
+  name: "column-create-toggle-input-button",
   data() {
     return {
       isShowForm: false,
@@ -30,6 +30,7 @@ export default {
         this.$store.commit("addColumn", this.columnName);
       }
       this.isShowForm = false;
+      // clear the column name
       this.columnName = "";
     },
     displayForm() {

@@ -21,7 +21,7 @@
  * This is the container to control the display and input components
  */
 export default {
-  name: "task-description-input-switch",
+  name: "task-description-toggle-display-edit",
   props: {
     columnId: String,
     taskIndex: Number,

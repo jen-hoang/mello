@@ -29,14 +29,14 @@
 import TaskDescriptionToggleDisplayEdit from "./TaskDescriptionToggleDisplayEdit.vue";
 import TaskTitleToggleDisplayEdit from "./TaskTitleToggleDisplayEdit.vue";
 /**
- * A task form for user to edit the form
+ * A task form for user to see and edit the task
  */
 export default {
   components: {
     "task-description-toggle-display-edit": TaskDescriptionToggleDisplayEdit,
     "task-title-toggle-display-edit": TaskTitleToggleDisplayEdit,
   },
-  name: "task-form",
+  name: "task-edit-form",
   props: {
     task: Object,
     closeForm: Function,

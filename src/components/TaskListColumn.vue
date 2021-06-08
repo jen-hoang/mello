@@ -1,6 +1,5 @@
 <template>
   <v-card width="270" class="mr-4 pa-2" flat color="transparent">
-    <!-- <v-card-title class="text-h5">{{ columnName }}</v-card-title> -->
     <div class="d-flex justify-space-between align-center">
       <column-name-toggle-display-edit :columnIndex="columnIndex" />
       <column-delete-dialog :columnIndex="columnIndex" />
@@ -51,7 +50,7 @@ import TaskDisplayEditDialog from "./TaskDisplayEditDialog.vue";
 import TaskCreateCard from "./TaskCreateCard.vue";
 import ColumnNameToggleDisplayEdit from "./ColumnNameToggleDisplayEdit.vue";
 import ColumnDeleteDialog from "./ColumnDeleteDialog.vue";
-//let idGlobal = 8;
+
 export default {
   name: "task-list-column",
   props: {

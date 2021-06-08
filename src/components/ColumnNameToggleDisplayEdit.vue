@@ -24,7 +24,7 @@
  * This is the container to control the display and input components
  */
 export default {
-  name: "column-name-display-edit-switch",
+  name: "column-name-toggle-display-edit",
   props: {
     columnIndex: Number,
   },
@@ -44,7 +44,7 @@ export default {
         return this.$store.getters.getColumnName(this.columnIndex);
       },
       set(value) {
-        console.log(value);
+        // make sure value is not empty
         if (value.trim()) {
           this.$store.commit("editColumnName", {
             index: this.columnIndex,
