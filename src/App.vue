@@ -27,12 +27,11 @@
 </template>
 
 <style lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap");
 .mello-app-container {
   min-height: 100vh;
 }
 .app-title {
-  font-family: "Yusei Magic", sans-serif;
+  font-family: $special-font-family;
   font-size: 36px;
 }
 </style>

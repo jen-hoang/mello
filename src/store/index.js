@@ -4,6 +4,8 @@ import uniqid from "uniqid";
 
 Vue.use(Vuex);
 
+
+
 export default new Vuex.Store({
   state() {
     return {
@@ -83,7 +85,6 @@ export default new Vuex.Store({
       state.taskList[taskListId][taskIndex].description = value;
     },
     addTask(state, { taskListId, title }) {
-      console.log(taskListId);
       console.log(state.taskList[taskListId]);
       state.taskList[taskListId].push({
         id: uniqid(),
