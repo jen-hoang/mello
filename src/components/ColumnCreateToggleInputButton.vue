@@ -6,6 +6,7 @@
         autofocus
         @blur="createColumn"
         @keypress.enter="createColumn"
+        @keydown.esc="closeForm"
         v-model="columnName"
         class="text-h5"
       ></v-text-field>
@@ -29,8 +30,11 @@ export default {
       if (this.columnName.trim()) {
         this.$store.commit("addColumn", this.columnName);
       }
+      this.closeForm();
+    },
+    closeForm() {
+      console.log("close form")
       this.isShowForm = false;
-      // clear the column name
       this.columnName = "";
     },
     displayForm() {

@@ -6,6 +6,7 @@
         autofocus
         @blur="createTask"
         @keypress.enter="createTask"
+        @keydown.esc="unDisplay"
         v-model="taskName"
       />
     </v-card-title>

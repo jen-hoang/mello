@@ -7,6 +7,7 @@
         autofocus
         @blur="toggleForm"
         @keypress.enter="toggleForm"
+        @keydown.esc="toggleForm"
         v-model="name"
       ></v-text-field>
     </div>
