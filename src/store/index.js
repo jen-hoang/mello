@@ -1,10 +1,14 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import uniqid from "uniqid";
+import VuexPersist from "vuex-persist";
+
+const vuexPersist = new VuexPersist({
+  key: "mello",
+  storage: window.localStorage,
+});
 
 Vue.use(Vuex);
-
-
 
 export default new Vuex.Store({
   state() {
@@ -12,25 +16,25 @@ export default new Vuex.Store({
       columns: [
         { id: "todo", name: "To do" },
         { id: "process", name: "Process" },
-        { id: "done", name: "done" },
+        { id: "done", name: "Done" },
       ],
       taskList: {
         todo: [
           {
             id: 1,
-            title: "get layout",
+            title: "Write a document",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           },
           {
             id: 2,
-            title: "Get board",
+            title: "Refactor code",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           },
           {
             id: 3,
-            title: "third",
+            title: "Adjust the website styling",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           },
@@ -38,24 +42,31 @@ export default new Vuex.Store({
         process: [
           {
             id: 5,
-            title: "fourth",
+            title: "Develop home page",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           },
           {
             id: 6,
-            title: "three",
+            title: "Develop popup task card",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           },
           {
             id: 7,
-            title: "two",
+            title: "Develop draggable board",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           },
         ],
-        done: [],
+        done: [
+          {
+            id: 7,
+            title: "Create a development environment",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          },
+        ],
       },
     };
   },
@@ -118,4 +129,5 @@ export default new Vuex.Store({
   },
   actions: {},
   modules: {},
+  plugins: [vuexPersist.plugin],
 });

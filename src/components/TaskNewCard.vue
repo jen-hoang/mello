@@ -1,12 +1,12 @@
 <template>
-  <v-card>
+  <v-card rounded="xl">
     <v-card-title>
       <v-text-field
-        v-model="taskName"
         placeholder="What is your task name?"
         autofocus
         @blur="createTask"
         @keypress.enter="createTask"
+        v-model="taskName"
       />
     </v-card-title>
   </v-card>
