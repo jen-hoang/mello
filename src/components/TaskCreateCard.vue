@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     createTask() {
-      if (this.taskName) {
+      if (this.taskName.trim()) {
         this.$store.commit("addTask", {
           taskListId: this.taskListId,
           title: this.taskName,

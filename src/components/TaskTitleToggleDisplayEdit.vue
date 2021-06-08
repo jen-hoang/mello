@@ -57,12 +57,12 @@ export default {
         });
       },
       set(value) {
-        if(value.trim()){
+        if (value.trim()) {
           this.$store.commit("updateTaskTitle", {
-          taskListId: this.columnId,
-          taskIndex: this.taskIndex,
-          value,
-        });
+            taskListId: this.columnId,
+            taskIndex: this.taskIndex,
+            value,
+          });
         }
       },
     },

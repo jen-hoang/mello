@@ -91,33 +91,37 @@ export default new Vuex.Store({
       state.taskList[taskListId] = list;
     },
     updateTaskTitle(state, { taskListId, taskIndex, value }) {
-      state.taskList[taskListId][taskIndex].title = value;
+      // check the value must not an empty string
+      if (typeof value === "string" && value.trim()) {
+        state.taskList[taskListId][taskIndex].title = value;
+      }
     },
     updateTaskDescription(state, { taskListId, taskIndex, value }) {
       state.taskList[taskListId][taskIndex].description = value;
     },
     addTask(state, { taskListId, title }) {
-      console.log(state.taskList[taskListId]);
-      state.taskList[taskListId].push({
-        id: uniqid(),
-        title: title,
-        description: "",
-      });
+      if (typeof title === "string" && title.trim()) {
+        state.taskList[taskListId].push({
+          id: uniqid(),
+          title: title,
+          description: "",
+        });
+      }
     },
     deleteTask(state, { taskListId, taskIndex }) {
       state.taskList[taskListId].splice(taskIndex, 1);
     },
     addColumn(state, columnName) {
-      const columnId = uniqid();
-      state.columns.push({
-        id: columnId,
-        name: columnName,
-      });
-      //state.taskList[columnId] = new Array();
-      const newTaskList = { ...state.taskList };
-      newTaskList[columnId] = [];
-      state.taskList = newTaskList;
-      console.log(state);
+      if (typeof columnName === "string" && columnName.trim()) {
+        const columnId = uniqid();
+        state.columns.push({
+          id: columnId,
+          name: columnName,
+        });
+        const newTaskList = { ...state.taskList };
+        newTaskList[columnId] = [];
+        state.taskList = newTaskList;
+      }
     },
     editColumnName(state, { index, name }) {
       state.columns[index].name = name;
