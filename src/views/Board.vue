@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import TaskBoard from "../components/TaskBoard.vue";
+import BoardDisplay from "../components/BoardDisplay.vue";
 
 export default {
   name: "clone-on-control",
@@ -13,7 +13,7 @@ export default {
   instruction: "Press Ctrl to clone element from list 1",
   order: 4,
   components: {
-    "task-board": TaskBoard,
+    "task-board": BoardDisplay,
   },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <v-card rounded="xl">
-    <task-title-display-input-switch
+    <task-title-toggle-display-edit
       :columnId="columnId"
       :taskIndex="taskIndex"
     />
@@ -13,7 +13,7 @@
           Description
         </div>
         <div>
-          <task-description-input-switch
+          <task-description-toggle-display-edit
             :columnId="columnId"
             :taskIndex="taskIndex"
           />
@@ -26,15 +26,15 @@
   </v-card>
 </template>
 <script>
-import TaskDescriptionInputSwitch from "./TaskDescriptionInputSwitch.vue";
-import TaskTitleDisplayInputSwitch from "./TaskTitleDisplayInputSwitch";
+import TaskDescriptionToggleDisplayEdit from "./TaskDescriptionToggleDisplayEdit.vue";
+import TaskTitleToggleDisplayEdit from "./TaskTitleToggleDisplayEdit.vue";
 /**
  * A task form for user to edit the form
  */
 export default {
   components: {
-    "task-title-display-input-switch": TaskTitleDisplayInputSwitch,
-    "task-description-input-switch": TaskDescriptionInputSwitch,
+    "task-description-toggle-display-edit": TaskDescriptionToggleDisplayEdit,
+    "task-title-toggle-display-edit": TaskTitleToggleDisplayEdit,
   },
   name: "task-form",
   props: {

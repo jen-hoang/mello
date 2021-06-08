@@ -2,7 +2,7 @@
   <v-card width="270" class="mr-4 pa-2" flat color="transparent">
     <!-- <v-card-title class="text-h5">{{ columnName }}</v-card-title> -->
     <div class="d-flex justify-space-between align-center">
-      <column-name-edit :columnIndex="columnIndex" />
+      <column-name-toggle-display-edit :columnIndex="columnIndex" />
       <column-delete-dialog :columnIndex="columnIndex" />
     </div>
     <div>
@@ -11,7 +11,7 @@
         :group="{ name: 'card', pull: true }"
         v-model="taskList"
       >
-        <task-edit-dialog
+        <task-display-edit-dialog
           v-for="(task, index) in taskList"
           :key="task.id"
           :task="task"
@@ -19,7 +19,7 @@
           :taskIndex="index"
         />
       </draggable>
-      <task-new-card
+      <task-create-card
         :taskListId="columnId"
         v-if="isDisplayTaskNewCard"
         :unDisplay="unDisplayTaskNewCard"
@@ -47,9 +47,9 @@
 </template>
 <script>
 import draggable from "vuedraggable";
-import TaskEditDialog from "./TaskEditDialog.vue";
-import TaskNewCard from "./TaskNewCard.vue";
-import ColumnNameDisplayEditSwitch from "./ColumnNameDisplayEditSwitch.vue";
+import TaskDisplayEditDialog from "./TaskDisplayEditDialog.vue";
+import TaskCreateCard from "./TaskCreateCard.vue";
+import ColumnNameToggleDisplayEdit from "./ColumnNameToggleDisplayEdit.vue";
 import ColumnDeleteDialog from "./ColumnDeleteDialog.vue";
 //let idGlobal = 8;
 export default {
@@ -82,10 +82,10 @@ export default {
     },
   },
   components: {
-    "task-edit-dialog": TaskEditDialog,
+    "task-display-edit-dialog": TaskDisplayEditDialog,
     draggable: draggable,
-    "task-new-card": TaskNewCard,
-    "column-name-edit": ColumnNameDisplayEditSwitch,
+    "task-create-card": TaskCreateCard,
+    "column-name-toggle-display-edit": ColumnNameToggleDisplayEdit,
     "column-delete-dialog": ColumnDeleteDialog,
   },
   methods: {

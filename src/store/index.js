@@ -12,6 +12,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state() {
+    // this is the sample data of the board
     return {
       columns: [
         { id: "todo", name: "To do" },

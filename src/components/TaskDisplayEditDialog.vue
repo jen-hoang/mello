@@ -3,7 +3,7 @@
     <v-dialog :key="task.id" v-model="dialog" max-width="500" rounded="xl">
       <template v-slot:activator="{ on, attrs }">
         <div v-bind="attrs" v-on="on">
-          <task-card :task="task" />
+          <task-display-card :task="task" />
         </div>
       </template>
       <task-edit-form
@@ -17,7 +17,7 @@
 </template>
 <script>
 import TaskEditForm from "./TaskEditForm.vue";
-import TaskCard from "./TaskCard.vue";
+import TaskDisplayCard from "./TaskDisplayCard.vue";
 export default {
   name: "task-dialog",
   props: {
@@ -27,7 +27,7 @@ export default {
   },
   components: {
     "task-edit-form": TaskEditForm,
-    "task-card": TaskCard,
+    "task-display-card": TaskDisplayCard,
   },
   data() {
     return {
