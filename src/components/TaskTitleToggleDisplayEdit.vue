@@ -2,8 +2,8 @@
   <div>
     <div v-if="isShowForm" class="ml-5 mr-5 mt-4 pt-2 pb-1">
       <v-text-field
-        placeholder="Placeholder"
-        class="text-h4"
+        placeholder="Enter your task"
+        class="text-h5"
         autofocus
         @blur="toggleForm"
         @keypress.enter="toggleForm"
@@ -12,7 +12,7 @@
     </div>
     <div v-else class="d-flex justify-space-between align-center pa-2">
       <v-card-title
-        class="text-h4 d-block flex-grow-1 text-left primary--text"
+        class="text-h5 d-block flex-grow-1 text-left primary--text"
         @click="toggleForm"
       >
         {{ title }}

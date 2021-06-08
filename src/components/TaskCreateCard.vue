@@ -2,7 +2,7 @@
   <v-card rounded="xl">
     <v-card-title>
       <v-text-field
-        placeholder="What is your task name?"
+        placeholder="Enter your task"
         autofocus
         @blur="createTask"
         @keypress.enter="createTask"

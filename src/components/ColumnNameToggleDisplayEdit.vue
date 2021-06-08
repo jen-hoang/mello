@@ -2,7 +2,7 @@
   <div>
     <div v-if="isShowForm" class="ml-3 mr-3">
       <v-text-field
-        placeholder="Placeholder"
+        placeholder="Enter column name"
         class="text-h6"
         autofocus
         @blur="toggleForm"
