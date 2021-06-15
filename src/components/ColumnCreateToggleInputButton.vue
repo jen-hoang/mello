@@ -33,7 +33,7 @@ export default {
       this.closeForm();
     },
     closeForm() {
-      console.log("close form")
+      console.log("close form");
       this.isShowForm = false;
       this.columnName = "";
     },
