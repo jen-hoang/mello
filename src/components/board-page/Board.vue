@@ -17,10 +17,6 @@ import BoardDisplay from "./components/BoardDisplay.vue";
 import NavBarWithFunctionalButton from "../general/NavBarWithFunctionalButton.vue";
 
 export default {
-  name: "clone-on-control",
-  display: "Clone on Control",
-  instruction: "Press Ctrl to clone element from list 1",
-  order: 4,
   components: {
     "task-board": BoardDisplay,
     "nav-bar-with-functional-button": NavBarWithFunctionalButton,
@@ -28,7 +24,7 @@ export default {
 };
 </script>
 <style scoped>
-.board-page-container{
+.board-page-container {
   margin-top: 60px;
 }
 </style>
