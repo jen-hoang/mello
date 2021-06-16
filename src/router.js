@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Home from "./components/home-page/Home.vue";
 
 Vue.use(VueRouter);
 
@@ -13,7 +13,7 @@ const routes = [
   {
     path: "/board",
     name: "/Board",
-    component: () => import("../views/Board.vue"),
+    component: () => import("./components/board-page/Board.vue"),
   },
 ];
 
