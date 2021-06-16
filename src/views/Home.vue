@@ -13,7 +13,13 @@
         <v-spacer></v-spacer>
         <p class="text-h6 font-weight-bold">Want to create a board?</p>
 
-        <v-btn rounded color="#FF3D00" class="ma-3" dark>
+        <v-btn
+          rounded
+          color="#FF3D00"
+          class="ma-3"
+          dark
+          @click="loginWithGoogle"
+        >
           <v-icon color="white" class="mr-2">mdi-google </v-icon>
           Login with Google</v-btn
         >
@@ -35,8 +41,31 @@
 </template>
 
 <script>
+import firebase from "../firebase/firebase";
 export default {
   name: "Home",
+  methods: {
+    loginWithGoogle() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then((result) => {
+          /** @type {firebase.auth.OAuthCredential} */
+          const credential = result.credential;
+          // get access token
+          const token = credential.accessToken;
+          // The signed-in user info.
+          //var user = result.user;
+          console.log(token);
+        })
+        .catch((error) => {
+          // Handle Errors here.
+          // will pop up error message later on
+          console.log(error);
+        });
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
