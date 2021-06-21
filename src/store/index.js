@@ -16,8 +16,7 @@ export default new Vuex.Store({
   state() {
     // this is the sample data of the board
     return {
-      userId: null,
-      name: "",
+      // this is the sample board data
       boardData: {
         columns: [
           { id: "todo", name: "To do" },
@@ -101,7 +100,6 @@ export default new Vuex.Store({
   mutations: {
     updateTaskList(state, { taskListId, list }) {
       state.boardData.taskList[taskListId] = list;
-      db.collection("boards").doc(state.userId).get();
     },
     updateTaskTitle(state, { taskListId, taskIndex, value }) {
       // check the value must not an empty string
@@ -143,38 +141,25 @@ export default new Vuex.Store({
         newTaskList[columnId] = [];
         state.boardData.taskList = newTaskList;
       }
-      db.collection("boards").doc(state.userId).get();
     },
     editColumnName(state, { index, name }) {
       state.boardData.columns[index].name = name;
-      db.collection("boards").doc(state.userId).get();
     },
     deleteColumn(state, index) {
       const columnId = state.boardData.columns[index].id;
       state.boardData.columns.splice(index, 1);
       state.boardData.taskList[columnId] = null;
-      db.collection("boards").doc(state.userId).get();
-    },
-    setAuthUserInfo(state, { uid, name }) {
-      state.userId = uid;
-      state.name = name;
-      console.log(state);
-    },
-    deleteUserInfo(state) {
-      state.userId = null;
-      state.name = "";
     },
     ...vuexfireMutations,
   },
   actions: {
+    // register real-time binding from firestore
     bindBoard: firestoreAction(async ({ state, bindFirestoreRef }) => {
       const user = firebase.auth().currentUser;
-      console.log(user);
+      // check if user is authenticated
       if (user !== null) {
-        console.log("Authenticated");
         const uid = user.uid;
-        // init board exists in firestore
-        // if not, init the board
+        // if current user board did not exist in the database, init the board value based on current state
         try {
           const board = await db.collection("boards").doc(uid).get();
           if (!board.exists) {
@@ -191,9 +176,10 @@ export default new Vuex.Store({
       unbindFirestoreRef("boards");
     }),
     updateBoardToFirestore: async ({ state }) => {
-      if (state.userId) {
+      const user = firebase.auth().currentUser;
+      if (user) {
         console.log("up load to firestore");
-        await db.collection("boards").doc(state.userId).set(state.boardData);
+        await db.collection("boards").doc(user.uid).set(state.boardData);
       }
     },
     setAuthUserInfo({ commit }, { uid, name }) {

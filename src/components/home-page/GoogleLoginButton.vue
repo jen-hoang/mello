@@ -14,12 +14,8 @@ export default {
       firebase
         .auth()
         .signInWithPopup(provider)
-        .then((result) => {
-          this.$store.dispatch("setAuthUserInfo", {
-            uid: result.user.uid,
-            name: result.additionalUserInfo.profile.given_name,
-          });
-          // init binding data
+        .then(() => {
+          // go to the board page
           this.$router.push("board");
         })
         .catch((error) => {

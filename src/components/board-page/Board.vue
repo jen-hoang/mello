@@ -1,4 +1,5 @@
-g<template>
+g
+<template>
   <div class="grey lighten-4 mello-app-container">
     <nav-bar-with-functional-button />
     <v-container
