@@ -35,9 +35,6 @@ export default {
     columnId: String,
     taskIndex: Number,
   },
-  mounted() {
-    console.log(this.columnId + this.taskIndex);
-  },
   data() {
     return {
       isShowForm: false,

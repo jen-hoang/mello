@@ -116,8 +116,6 @@ export default new Vuex.Store({
         state.boardData.taskList = {};
       }
       if (typeof title === "string" && title.trim()) {
-        console.log(taskListId);
-        console.log(state.boardData.taskList);
         state.boardData.taskList[taskListId].push({
           id: uniqid(),
           title: title,
@@ -164,7 +162,7 @@ export default new Vuex.Store({
         try {
           const board = await db.collection("boards").doc(uid).get();
           if (!board.exists) {
-            console.log("board does not exist");
+           
             await db.collection("boards").doc(uid).set(state.boardData);
           }
         } catch (err) {
@@ -179,7 +177,7 @@ export default new Vuex.Store({
     updateBoardToFirestore: async ({ state }) => {
       const user = firebase.auth().currentUser;
       if (user) {
-        console.log("up load to firestore");
+      
         await db.collection("boards").doc(user.uid).set(state.boardData);
       }
     },

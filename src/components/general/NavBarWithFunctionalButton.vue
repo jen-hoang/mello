@@ -22,7 +22,6 @@ export default {
   },
   computed: {
     userName() {
-      console.log(this.$store);
       return this.$store.state.userName;
     },
   },
