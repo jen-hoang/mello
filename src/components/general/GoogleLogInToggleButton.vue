@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       key: uniqid(),
-      isLogin: firebase.auth().currentUser != null
+      isLogin: firebase.auth().currentUser != null,
     };
   },
   methods: {
@@ -35,10 +35,15 @@ export default {
       firebase
         .auth()
         .signInWithPopup(provider)
-        .then(() => {
+        .then((result) => {
           // register to bind the board
           this.$store.dispatch("bindBoard");
           this.isLogin = true;
+          console.log(result.additionalUserInfo.profile.given_name);
+          this.$store.dispatch(
+            "updateUserName",
+            result.additionalUserInfo.profile.given_name
+          );
         })
         .catch((error) => {
           // will pop up error message later on
@@ -53,6 +58,7 @@ export default {
         .then(() => {
           this.changeKey();
           this.isLogin = false;
+          this.$store.dispatch("updateUserName", "");
         })
         .catch((err) => {
           console.log(err);

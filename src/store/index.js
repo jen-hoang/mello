@@ -17,6 +17,7 @@ export default new Vuex.Store({
     // this is the sample data of the board
     return {
       // this is the sample board data
+      userName: "",
       boardData: {
         columns: [
           { id: "todo", name: "To do" },
@@ -226,6 +227,9 @@ export default new Vuex.Store({
     async deleteColumn({ commit, dispatch }, index) {
       commit("deleteColumn", index);
       await dispatch("updateBoardToFirestore");
+    },
+    updateUserName({ state }, userName) {
+      state.userName = userName;
     },
   },
   modules: {},

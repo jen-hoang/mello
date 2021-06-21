@@ -14,7 +14,11 @@ export default {
       firebase
         .auth()
         .signInWithPopup(provider)
-        .then(() => {
+        .then((result) => {
+          this.$store.dispatch(
+            "updateUserName",
+            result.additionalUserInfo.profile.given_name
+          );
           // go to the board page
           this.$router.push("board");
         })
