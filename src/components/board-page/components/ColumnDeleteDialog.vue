@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     deleteColumn() {
-      this.$store.commit("deleteColumn", this.columnIndex);
+      this.$store.dispatch("deleteColumn", this.columnIndex);
       this.closeDialog();
     },
     closeDialog() {

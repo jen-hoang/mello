@@ -47,7 +47,7 @@ export default {
       set(value) {
         // make sure value is not empty
         if (value.trim()) {
-          this.$store.commit("editColumnName", {
+          this.$store.dispatch("editColumnName", {
             index: this.columnIndex,
             name: value,
           });

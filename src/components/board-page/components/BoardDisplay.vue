@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     columnList() {
-      return this.$store.state.columns;
+      return this.$store.getters.columns;
     },
   },
 };

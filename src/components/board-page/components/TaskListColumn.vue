@@ -63,17 +63,17 @@ export default {
   },
   computed: {
     columnName() {
-      return this.$store.state.columns[this.columnIndex].name;
+      return this.$store.getters.columns[this.columnIndex].name;
     },
     columnId() {
-      return this.$store.state.columns[this.columnIndex].id;
+      return this.$store.getters.columns[this.columnIndex].id;
     },
     taskList: {
       get() {
-        return this.$store.state.taskList[this.columnId];
+        return this.$store.getters.taskList[this.columnId];
       },
       set(value) {
-        this.$store.commit("updateTaskList", {
+        this.$store.dispatch("updateTaskList", {
           taskListId: this.columnId,
           list: value,
         });

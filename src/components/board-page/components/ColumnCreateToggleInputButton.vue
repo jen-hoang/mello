@@ -28,7 +28,7 @@ export default {
   methods: {
     createColumn() {
       if (this.columnName.trim()) {
-        this.$store.commit("addColumn", this.columnName);
+        this.$store.dispatch("addColumn", this.columnName);
       }
       this.closeForm();
     },

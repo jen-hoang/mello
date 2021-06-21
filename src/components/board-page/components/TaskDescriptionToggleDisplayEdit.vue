@@ -50,7 +50,7 @@ export default {
         });
       },
       set(value) {
-        this.$store.commit("updateTaskDescription", {
+        this.$store.dispatch("updateTaskDescription", {
           taskListId: this.columnId,
           taskIndex: this.taskIndex,
           value,

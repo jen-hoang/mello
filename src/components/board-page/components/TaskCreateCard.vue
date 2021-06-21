@@ -30,7 +30,7 @@ export default {
   methods: {
     createTask() {
       if (this.taskName.trim()) {
-        this.$store.commit("addTask", {
+        this.$store.dispatch("addTask", {
           taskListId: this.taskListId,
           title: this.taskName,
         });

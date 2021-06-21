@@ -1,11 +1,7 @@
 <template>
   <div class="grey lighten-4 mello-app-container">
     <nav-bar-with-logo />
-
-    <!-- Sizes your content based upon application components -->
     <v-main>
-      <!-- Provides the application the proper gutter -->
-
       <v-container
         fluid
         class="d-flex justify-space-between align-center page-container"
@@ -20,16 +16,7 @@
             <v-spacer></v-spacer>
             <p class="text-h6 font-weight-bold">Want to create a board?</p>
 
-            <v-btn
-              rounded
-              color="#FF3D00"
-              class="ma-3"
-              dark
-              @click="loginWithGoogle"
-            >
-              <v-icon color="white" class="mr-2">mdi-google </v-icon>
-              Login with Google</v-btn
-            >
+            <google-login-button />
             <v-spacer></v-spacer>
             to save your data
             <v-spacer class="mt-5"></v-spacer>
@@ -50,34 +37,13 @@
 </template>
 
 <script>
-import firebase from "../../firebase/firebase";
 import NavBarWithLogo from "../general/NavBarOnlyLogo.vue";
+import GoogleLoginButton from "./GoogleLoginButton.vue";
 export default {
   name: "Home",
   components: {
     "nav-bar-with-logo": NavBarWithLogo,
-  },
-  methods: {
-    loginWithGoogle() {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      firebase
-        .auth()
-        .signInWithPopup(provider)
-        .then((result) => {
-          /** @type {firebase.auth.OAuthCredential} */
-          const credential = result.credential;
-          // get access token
-          const token = credential.accessToken;
-          // The signed-in user info.
-          //var user = result.user;
-          console.log(token);
-        })
-        .catch((error) => {
-          // Handle Errors here.
-          // will pop up error message later on
-          console.log(error);
-        });
-    },
+    "google-login-button": GoogleLoginButton,
   },
 };
 </script>

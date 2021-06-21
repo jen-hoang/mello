@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     deleteTask() {
-      this.$store.commit("deleteTask", {
+      this.$store.dispatch("deleteTask", {
         taskListId: this.taskListId,
         taskIndex: this.taskIndex,
       });

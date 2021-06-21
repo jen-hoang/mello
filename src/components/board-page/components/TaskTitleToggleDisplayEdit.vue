@@ -58,7 +58,7 @@ export default {
       },
       set(value) {
         if (value.trim()) {
-          this.$store.commit("updateTaskTitle", {
+          this.$store.dispatch("updateTaskTitle", {
             taskListId: this.columnId,
             taskIndex: this.taskIndex,
             value,

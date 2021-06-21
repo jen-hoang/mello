@@ -1,4 +1,4 @@
-<template>
+g<template>
   <div class="grey lighten-4 mello-app-container">
     <nav-bar-with-functional-button />
     <v-container
@@ -15,11 +15,14 @@
 <script>
 import BoardDisplay from "./components/BoardDisplay.vue";
 import NavBarWithFunctionalButton from "../general/NavBarWithFunctionalButton.vue";
-
 export default {
   components: {
     "task-board": BoardDisplay,
     "nav-bar-with-functional-button": NavBarWithFunctionalButton,
+  },
+  created() {
+    // init binding with db
+    this.$store.dispatch("bindBoard");
   },
 };
 </script>

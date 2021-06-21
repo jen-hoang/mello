@@ -14,5 +14,8 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+// get firebase
+export const db = firebase.firestore();
+export const { TimeStamp, GeoPoint } = firebase.firestore;
 
 export default firebase;
